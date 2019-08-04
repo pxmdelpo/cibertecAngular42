@@ -4,15 +4,21 @@ import { ListProductComponent } from './list-product/list-product.component';
 import { HoverDirective } from './shared/directives/hover.directive';
 import { SortPipe } from './shared/pipes/sort.pipe';
 import { ShorTextPipe } from './shared/pipes/short-text.pipe';
+import { CreateProductComponent } from './create-product/create-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     ListProductComponent,
     HoverDirective,
-    ShorTextPipe
+    ShorTextPipe,
+    CreateProductComponent,
+    EditProductComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     ListProductComponent
