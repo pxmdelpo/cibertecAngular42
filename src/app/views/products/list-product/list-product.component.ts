@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Product from '../product.model';
 import { SortPipe } from '../shared/pipes/sort.pipe';
+import { ProductsService } from '../shared/services/products.service';
 
 @Component({
   selector: 'app-list-product',
@@ -9,24 +10,15 @@ import { SortPipe } from '../shared/pipes/sort.pipe';
 })
 export class ListProductComponent implements OnInit {
 
-  allProducts: Product[] = [
-    {
-      id: 101,
-      name: 'Celular 1'
-    },
-    {
-      id: 102,
-      name: 'Laptop 1'
-    },
-    {
-      id: 200,
-      name: 'Carrito de juguete'
-    }
-  ];
+  allProducts: Product[];
 
-  constructor(private sortPipe: SortPipe) { }
+  constructor(
+    private sortPipe: SortPipe,
+    private productService: ProductsService
+  ) { }
 
   ngOnInit() {
+    this.allProducts = this.productService.getProducts();
   }
 
   onSort(value: string) {
@@ -37,7 +29,7 @@ export class ListProductComponent implements OnInit {
   }
 
   onRemove(id: number) {
-    this.sortPipe
+    this.productService.deleteProduct(id);
     this.allProducts = this.allProducts.filter(prod =>  prod.id !== id);
   }
 
