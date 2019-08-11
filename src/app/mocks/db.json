@@ -1,3 +1,32 @@
 {
-    "products": []
+  "products": [
+    {
+      "id": 100,
+      "name": "Mac 2"
+    },
+    {
+      "id": 200,
+      "name": "Laptop 2"
+    },
+    {
+      "id": 300,
+      "name": "Laptop 3"
+    },
+    {
+      "id": 400,
+      "name": "Laptop 4"
+    },
+    {
+      "name": "Test 1",
+      "id": 401
+    },
+    {
+      "name": "Test 1",
+      "id": 402
+    },
+    {
+      "name": "Test 1",
+      "id": 403
+    }
+  ]
 }

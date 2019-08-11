@@ -18,7 +18,9 @@ export class ListProductComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.allProducts = this.productService.getProducts();
+    this.productService.getProducts().subscribe((products: Product[]) => {
+      this.allProducts = products;
+    });
   }
 
   onSort(value: string) {
@@ -29,8 +31,9 @@ export class ListProductComponent implements OnInit {
   }
 
   onRemove(id: number) {
-    this.productService.deleteProduct(id);
-    this.allProducts = this.allProducts.filter(prod =>  prod.id !== id);
+    this.productService.deleteProduct(id).subscribe((response) => {
+      this.allProducts = this.allProducts.filter(prod =>  prod.id !== id);
+    });
   }
 
 }
