@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import Product from '../../product.model';
 
 import { HttpClient } from '@angular/common/http';
-import { filter, scan } from 'rxjs/operators';
 import { environment } from '../../../../../environments/environment';
 
 @Injectable()
@@ -17,22 +16,22 @@ export class ProductsService {
     ) {}
 
     getProducts() {
-        const URL: string = `${this.api}/${this.endpoint}`;
+        const URL: string = `${this.api}/${this.endpoint}/`;
         return this.http.get(URL);
     }
 
     getProduct(id: number) {
-        const URL: string = `${this.api}/${this.endpoint}/${id}`;
+        const URL: string = `${this.api}/${this.endpoint}/${id}/`;
         return this.http.get(URL);
     }
 
     deleteProduct(id: number) {
-        const URL: string = `${this.api}/${this.endpoint}/${id}`;
+        const URL: string = `${this.api}/${this.endpoint}/${id}/`;
         return this.http.delete(URL);
     }
 
     createProduct(product: Product) {
-        const URL: string = `${this.api}/${this.endpoint}`;
+        const URL: string = `${this.api}/${this.endpoint}/`;
         return this.http.post(URL, product, {
             headers: {
                 'Content-type': 'application/json'
@@ -41,7 +40,7 @@ export class ProductsService {
     }
 
     updateProduct(product: Product) {
-        const URL: string = `${this.api}/${this.endpoint}/${product.id}`;
+        const URL: string = `${this.api}/${this.endpoint}/${product.id}/`;
 
         return this.http.put(URL, product, {
             headers: {
